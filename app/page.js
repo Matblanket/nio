@@ -13,7 +13,6 @@ export default function Home() {
 		3: { sr: "(500,500).png", l: 500, t: 500, anistate: { display: false } },
 		4: { sr: "(0,1050).png", l: 0, t: 1050, anistate: { display: false } },
 	})
-
 	const visible = (id) => {
 		setPageMap(prevState => ({
 			...prevState, [id]: { ...prevState[id], anistate: { display: true } }
