@@ -1,12 +1,17 @@
+'use client'
 import { motion } from "framer-motion"
-import { createElement, useState } from "react"
 export default function Box(props) {
 
 	return (
 		<>
 			<motion.div
-				animate={{ y: -props.tester }}
-				transition={{ type: "linear", duration: 10 }} >
+				animate={{ 
+					x: props.appstate.position.x, 
+					y: props.appstate.position.y,
+					scale: props.appstate.scale,
+
+				}}
+				transition={{ type: "spring", duration: 2 }} >
 				{Listofimg(props.url)}
 			</motion.div>
 		</>
@@ -31,7 +36,6 @@ function createImage(data) {
 		<motion.div animate={data.anistate.display ? "open" : "closed"}
 			variants={variants}>
 			<img src={data.sr} alt="missing" style={{
-				position: 'absolute',
 				top: `${data.t}px`,
 				left: `${data.l}px`,
 			}}>
