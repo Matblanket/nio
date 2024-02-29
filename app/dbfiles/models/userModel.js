@@ -7,7 +7,10 @@ const userSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now }
 });
 
-const User = mongoose.models.user || mongoose.model('User', userSchema);
-
-
-export default User;
+try{
+var User = mongoose.model('User', userSchema);
+module.exports = User;
+}
+catch(error){
+	console.log(error)
+}
