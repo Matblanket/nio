@@ -22,7 +22,7 @@ export default function LoginPage() {
 	return (
 	
 <div class="flex">
-    <div class="h-screen w-1/3 bg-gradient-to-b from-red-500 to-red-700"></div>
+    <div class="h-screen w-2/3 bg-cover" style={{backgroundImage: "url(/loginimg.jpg)"}}></div>
 
     <div class="h-screen flex items-center justify-center w-full">
         <div class="max-w-md p-8 bg-gradient-to-b from-sky-200 to-sky-300 rounded-lg shadow-lg">

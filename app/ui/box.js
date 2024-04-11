@@ -3,7 +3,7 @@ import { motion } from "framer-motion"
 export default function Box(props) {
 
 	return (
-		<>
+		<div className="flex justify-center w-screen">
 			<motion.div
 				animate={{ 
 					x: props.appstate.position.x, 
@@ -11,10 +11,11 @@ export default function Box(props) {
 					scale: props.appstate.scale,
 
 				}}
-				transition={{ type: "spring", duration: 2 }} >
-				{Listofimg(props.url)}
+				transition={{ type: props.appstate.transitiontype, duration: props.appstate.transitionduration }} 
+				className="object-contain">
+				{Listofimg(props.pagemap)}
 			</motion.div>
-		</>
+		</div>
 	)
 }
 
@@ -34,11 +35,9 @@ function createImage(data) {
 	}
 	return (
 		<motion.div animate={data.anistate.display ? "open" : "closed"}
-			variants={variants}>
-			<img src={data.sr} alt="missing" style={{
-				top: `${data.t}px`,
-				left: `${data.l}px`,
-			}}>
+			variants={variants} style={{height: data.size.y}}
+			className="w-screen justify-center">
+			<img src={data.sr} alt="missing" className="object-cover m-auto">
 			</img>
 		</motion.div>)
 }

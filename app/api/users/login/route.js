@@ -16,12 +16,12 @@ export async function POST(request) {
 		console.log(user)
 		if (user == null) {
 			console.log("here")
-			return NextResponse.json({ error: "unregistered user " }, { status: 402 })
+			return NextResponse.json({ error: "unregistered user " }, { status: 400 })
 		}
 		const validPass = await bcryptjs.compare(password, user.password)
 		//console.log(validPass)
 		if (!validPass) {
-			return NextResponse.json({ error: "Invalid password" }, { status: 402 })
+			return NextResponse.json({ error: "Invalid password" }, { status: 400 })
 		}
 		const tokendata = {
 			id: user._id,
@@ -30,7 +30,7 @@ export async function POST(request) {
 		}
 
 		const token = jwt.sign(tokendata, process.env.JWT_SECRET_KEY, 
-			{ expiresIn: "1h" })
+			{ expiresIn: "1m" })
 		//console.log("here")
 		const response = NextResponse.json({
 			message: "login done",
