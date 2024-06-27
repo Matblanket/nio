@@ -1,3 +1,4 @@
-for n in {1..70}; do
-	curl -o ${n}.jpg https://wp.youtube-anime.com/aln.youtube-anime.com/images6/fnuuMMSLBJaX2wvn3/1/sub_${n}.css
+for i in {1..70}
+do
+	curl -o madeinabyss$i.jpg "https://wp.youtube-anime.com/aln.youtube-anime.com/images137/howMfEQ4vvXfLWYfY/1/sub/${i}.css"
 done
